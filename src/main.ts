@@ -30,7 +30,7 @@ const BtnQueuePop = document.querySelector<HTMLButtonElement>('#queue-pop')!
 BtnQueuePop.addEventListener('click', () => {
     let val = queue.pop()
     if (val) {
-        disappear(val)
+        val.style.animation = "0.5s ease slideInRight-leave"
         setTimeout(() => {
             QueueHTML.removeChild<HTMLDivElement>(val!)
         }, 400)
@@ -47,11 +47,3 @@ function createBlock(className: string, value: number): HTMLDivElement {
     `
     return div
 }
-
-
-function disappear(elem: HTMLDivElement) {
-    elem.style.animation = "0.5s ease slideInRight-leave"
-}
-
-
-
