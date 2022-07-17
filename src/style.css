@@ -1,0 +1,115 @@
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+}
+
+
+#queue {
+    height: 120px;
+    max-width: 80%;
+
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+
+    overflow: scroll;
+}
+
+.queue-elem:first-child {
+    border-radius: 10px 0 0 10px
+}
+
+.queue-elem:first-child::before {
+    content: "FIRST";
+    position: absolute;
+    transform: translate(-25%, -100%);
+}
+
+.queue-elem:last-child {
+    border-radius: 0 10px 10px 0
+}
+
+.queue-elem:last-child::after {
+    content: "LAST";
+    position: absolute;
+    transform: translate(-75%, -100%);
+}
+
+.queue-elem:only-child {
+    border-radius: 10px;
+}
+
+.queue-elem:only-child::before, .queue-elem:only-child::after {
+    content: "";
+}
+
+.queue-elem {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgba(128, 128, 128, 0.3);
+}
+
+.queue-elem:not(:last-child) {
+    border-right: white solid 1px;
+}
+
+#buttons {
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+button {
+    width: 80px;
+    height: 40px;
+
+    border-radius: 5px;
+    background-color: #5A9CF8;
+    border: unset;
+
+    margin: 10px;
+
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+
+    transition: background-color ease 0.1s;
+}
+
+button:active {
+    background-color: #5090F0;
+}
+
+@keyframes slideInLeft-enter {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight-leave {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
